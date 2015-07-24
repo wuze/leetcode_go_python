@@ -30,7 +30,6 @@ func mySum(arr []int) (ret [][3]int) {
 	}
 	fmt.Printf("\n---------\n")
 	var idx = 0
-	ret = make([][3]int, 10)
 	for i := 0; i < count-2; i++ {
 
 		var current = i
@@ -40,11 +39,8 @@ func mySum(arr []int) (ret [][3]int) {
 		for low < high {
 			a := arr[low]
 			b := arr[high]
-
 			if arr[current]+a+b == 0 {
-				ret[idx][0] = arr[current]
-				ret[idx][1] = a
-				ret[idx][2] = b
+                ret=append(ret,[3]int{arr[current],a,b})
 				for low < count && arr[low] == arr[low+1] {
 					low++
 				}
@@ -66,13 +62,28 @@ func mySum(arr []int) (ret [][3]int) {
 				for low < count && arr[low] == arr[low+1] {
 					low++
 				}
-
 				low++
 			}
 		}
 	}
 
 	return
+}
+
+func checkSame(arr [][]int){
+    var s[] string
+    l:=count(arr)
+    for i:=0;i<l;i++{
+        tmp:=Sprintf("%d,%d,%",arr[i][0],arr[i][1],arr[i][2]) 
+        f:=0
+        for k,v:=range s{
+            if v==tmp:
+                f=1
+        }
+        if f==0{
+            s:=append(s,tmp)
+        }
+    }
 }
 
 func main() {
