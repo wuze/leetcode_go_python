@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func bubbleSort(arr []int) (ret []int) {
-	lenth := len(arr)
+	lenth := len(arr) // {{{
 
 	fmt.Println(lenth)
 	for i := 1; i < lenth; i++ {
@@ -17,7 +17,7 @@ func bubbleSort(arr []int) (ret []int) {
 	}
 
 	ret = arr
-	return
+	return // }}}
 }
 
 /***
@@ -26,7 +26,7 @@ func bubbleSort(arr []int) (ret []int) {
 **/
 
 func selectSort(arr []int) (ret []int) {
-	lenth := len(arr)
+	lenth := len(arr) // {{{
 
 	for i := 0; i < lenth-1; i++ {
 		p := i
@@ -44,11 +44,14 @@ func selectSort(arr []int) (ret []int) {
 	}
 
 	ret = arr
-	return
+	return // }}}
 }
 
+/**
+从第二个数字开始，　如果这个数字比前面的一个小
+**/
 func insertSort(arr []int) (ret []int) {
-	lenth := len(arr)
+	lenth := len(arr) // {{{
 	for i := 1; i < lenth; i++ {
 		tmp := arr[i]
 		for j := i - 1; j > 0; j-- {
@@ -61,11 +64,15 @@ func insertSort(arr []int) (ret []int) {
 		}
 	}
 	ret = arr
-	return
+	return // }}}
 }
 
+/***
+ 选取一个基准，　基准左右的数据　分别再两个数组中
+ 递归执行下去
+**/
 func quckSort(arr []int) (ret []int) {
-	lenth := len(arr)
+	lenth := len(arr) // {{{
 	base := arr[0]
 
 	var left_arr []int
@@ -101,10 +108,11 @@ func quckSort(arr []int) (ret []int) {
 		}
 	}
 
-	return ret
+	return ret // }}}
 }
+
 func main() {
-	arr := []int{-1, 10, 0, 12, 12, 21, 23, 100, -8}
+	arr := []int{-1, 10, 0, 12, 12, 21, 23, 100, -8} // {{{
 
 	fmt.Println("Origin:")
 	fmt.Println(arr)
@@ -128,5 +136,5 @@ func main() {
 	ret = quckSort(arr)
 	fmt.Println(ret)
 	fmt.Println("\n-------\n")
-
+	// }}}
 }
