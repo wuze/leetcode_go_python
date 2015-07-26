@@ -1,3 +1,12 @@
+/***
+basic sort algorithm practice
+1. BubbleSort
+2. SelectSort
+3. InsertSort
+4. QuickSort
+
+@author bravowoo@163.com
+***/
 package main
 
 import "fmt"
