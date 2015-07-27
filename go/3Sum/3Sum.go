@@ -12,7 +12,8 @@
 *     A solution set is:
 *     (-1, 0, 1)
 *     (-1, -1, 2)
- */
+@author bravowoo@163.com
+*/
 
 package main
 
