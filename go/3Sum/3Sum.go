@@ -19,7 +19,39 @@ package main
 import (
 	"fmt"
 	"sort"
+	"strconv"
 )
+
+// 去重
+func checkRet(arr [][3]int) (ret [][3]int) {
+	var str []string
+	for _, v := range arr {
+		if len(v) > 0 {
+			str = append(str, strconv.Itoa(v[0])+strconv.Itoa(v[1])+strconv.Itoa(v[2]))
+		}
+	}
+
+	strLen := len(str)
+	if strLen > 2 {
+		i := 0
+		for i = 0; i < strLen-1; i++ {
+			flag := 0
+			for j := i + 1; j < strLen; j++ {
+				if str[i] == str[j] {
+					flag = 1
+				}
+			}
+
+			if flag == 0 {
+				ret = append(ret, arr[i])
+			}
+		}
+		// 最后一个元素
+		ret = append(ret, arr[i])
+	}
+
+	return
+}
 
 func mySum(arr []int) (ret [][3]int) {
 	sort.Ints(arr)
@@ -28,8 +60,9 @@ func mySum(arr []int) (ret [][3]int) {
 	for i := 0; i < count; i++ {
 		fmt.Printf("%d ", arr[i])
 	}
+
 	fmt.Printf("\n---------\n")
-	var idx = 0
+
 	for i := 0; i < count-2; i++ {
 
 		var current = i
@@ -40,7 +73,8 @@ func mySum(arr []int) (ret [][3]int) {
 			a := arr[low]
 			b := arr[high]
 			if arr[current]+a+b == 0 {
-                ret=append(ret,[3]int{arr[current],a,b})
+
+				ret = append(ret, [3]int{arr[current], a, b})
 				for low < count && arr[low] == arr[low+1] {
 					low++
 				}
@@ -51,7 +85,6 @@ func mySum(arr []int) (ret [][3]int) {
 
 				low++
 				high--
-				idx++
 			} else if current+a+b > 0 {
 
 				for high > 0 && arr[high] == arr[high-1] {
@@ -67,24 +100,10 @@ func mySum(arr []int) (ret [][3]int) {
 		}
 	}
 
+	ret = checkRet(ret)
 	return
 }
 
-func checkSame(arr [][]int){
-    var s[] string
-    l:=count(arr)
-    for i:=0;i<l;i++{
-        tmp:=Sprintf("%d,%d,%",arr[i][0],arr[i][1],arr[i][2]) 
-        f:=0
-        for k,v:=range s{
-            if v==tmp:
-                f=1
-        }
-        if f==0{
-            s:=append(s,tmp)
-        }
-    }
-}
 
 func main() {
 	var arr = []int{-1, 0, 1, 2, -1, -4}
