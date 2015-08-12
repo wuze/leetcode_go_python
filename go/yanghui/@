@@ -1,0 +1,41 @@
+package main
+
+import (
+	"fmt"
+)
+
+func displayData(line int) {
+	total := 2*line + 1
+	data := make([][]int, 7, 7)
+
+	for i := 0; i < total; i++ {
+		tmp := make([]int, 7, 7)
+		data[i] = tmp
+	}
+
+	data[0][0] = 1
+	for i := 1; i < line; i++ {
+		fmt.Printf("第%d行\n", i)
+		for j := 0; j <= i; j++ {
+			fmt.Printf("第%d  %d\n", i, j)
+			if j == 0 {
+				data[i][0] = 1
+				continue
+			}
+
+			if i == j {
+				data[i][j] = 1
+			} else {
+				data[i][j] = data[i-1][j-1] + data[i-1][j]
+			}
+		}
+	}
+
+}
+
+func main() {
+	line := 7
+	fmt.Printf("显示%d行\n", line)
+
+	displayData(line)
+}
