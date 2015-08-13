@@ -1,6 +1,8 @@
 #!/bin/bash python
 #encoding:utf-8
 
+### 主要思想是采用队列
+### queue
 
 
 def displayRet(num,total):
