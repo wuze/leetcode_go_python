@@ -1,0 +1,5 @@
+#!/bin/bash
+
+a="testtest"
+echo "${string:position} 从position位置开始截取字符串"
+echo ${a:3}
