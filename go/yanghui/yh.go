@@ -1,6 +1,6 @@
 /****
 * 杨辉三角　Ｇｏ测试
-*/
+ */
 package main
 
 import (
