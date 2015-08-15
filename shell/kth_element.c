@@ -69,7 +69,6 @@ void quick(int *a, int l, int h)
     if(l>=h) return;
 
     int mid = divide(a,l,h);
-
     quick(a, l,mid-1);
     quick(a, mid+1, h);
 /*}}}*/
