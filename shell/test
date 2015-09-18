@@ -1,5 +1,8 @@
 #!/bin/bash
 
 a="testtest"
-echo "${string:position} ��positionλ�ÿ�ʼ��ȡ�ַ���"
+echo "${string:position} 从position位置开始截取字符串"
 echo ${a:3}
+echo "${string:position} 从头删除最短匹配"
+echo ${a#test}
+echo ${a/tt/fuck}
