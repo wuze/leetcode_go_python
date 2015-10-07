@@ -105,7 +105,6 @@ func mySum(arr []int) (ret [][3]int) {
 	return
 }
 
-
 func main() {
 	var arr = []int{-1, 0, 1, 2, -1, -4}
 	ret := mySum(arr)
